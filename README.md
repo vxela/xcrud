@@ -8,10 +8,10 @@ Open for contributor
 <h3>How to contribute :</h3>
 
 1. Fork this repository
-2. Clone your forked repository
-3. Login into Framework folder you been use, if there is no framework folder, create it
-3. Create new folder with your name (ex John Doe => John_Doe) into frame work folder
-3. Add your awesome CRUD App into you your folder
+2. Clone your forked repository into your machine
+3. Login into Framework folder you will use, if there is no framework folder, create it in home project dir (ex react => xcrud/react)
+3. Create new folder with your name (ex John Doe => John_Doe) into framework folder
+3. Add your awesome CRUD App into you your folder with README.md file which describes/how to use your crud application
 4. Commit it in you repository
-5. Create New Pull Request to this repository
+5. Create New Pull Request to this repository (make sure no conflict)
 6. Enjoy, all done!!
