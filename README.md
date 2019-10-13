@@ -5,13 +5,34 @@ xcrud is a repository for store your crud application in any feramework for lear
 
 Open for contributor
 
-<h3>How to contribute :</h3>
+## How to contribute :
 
 1. Fork this repository
-2. Clone your forked repository into your machine
+2. Clone your forked repository
+```
+git clone "Link Repository"
+```
 3. Login into Framework folder you will use, if there is no framework folder, create it in home project dir (ex react => xcrud/react)
-3. Create new folder with your name (ex John Doe => John_Doe) into framework folder
-3. Add your awesome CRUD App into you your folder with README.md file which describes/how to use your crud application
-4. Commit it in you repository
-5. Create New Pull Request to this repository (make sure no conflict)
-6. Enjoy, all done!!
+4. Create new folder with your name (ex John Doe => John_Doe) into framework folder
+5. Create new Branch with dev-yourname
+```
+git branch dev-yourname
+```
+6. Checkout into your branch
+```
+git checkout dev-yourname
+```
+7. Add all changed repo into git
+```
+git add .
+```
+8. Commit
+```
+git commit -m "Message"
+```
+9. push into your branch
+```
+git push -u origin dev-yourname
+```
+10. Create New Pull Request to master this repository (make sure no conflict)
+11. Enjoy, all done!!
