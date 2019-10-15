@@ -13,45 +13,24 @@ class employeeController extends Controller
      */
     public function index()
     {
-        //
         $emp_data = \App\Employee::all();
         return view('employeeList', ['emp_data' => $emp_data ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
         return view('employeeCreate');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
         $emp_data = \App\Employee::find($id);
-        dd($emp_data);
-        return view('employeeDetail');
+        return view('employeeDetail', ['emp_data' => $emp_data]);
     }
 
     /**
@@ -63,7 +42,8 @@ class employeeController extends Controller
     public function edit($id)
     {
         //
-        return view('employeeEdit');
+        $emp_data = \App\Employee::find($id);
+        return view('employeeEdit', ['emp_data' => $emp_data]);
     }
 
     /**
