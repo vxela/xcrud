@@ -28,83 +28,86 @@
                             <h2>Edit Employee</h2>
                         </div>
                     </div>
-                    <div class="row mb-2">
-                        <div class="col-md-3">
-                            Employee Name
+                    <form action="/employee/update/{{$emp_data->id}}" method="post">
+                        <div class="row mb-2">
+                            <div class="col-md-3">
+                                Employee Name
+                            </div>
+                            <div class="col-md-4">
+                                @csrf
+                                <input class="form-control" type="text" name="emp_name" value="{{$emp_data->employee_name}}">
+                            </div>
                         </div>
-                        <div class="col-d-9">
-                            {{$emp_data->employee_name}}
+                        <div class="row mb-2">
+                            <div class="col-md-3">
+                                Job
+                            </div>
+                            <div class="col-md-4">
+                                <input class="form-control" type="text" name="emp_job" value="{{$emp_data->employee_job}}">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row mb-2">
-                        <div class="col-md-3">
-                            Job
+                        <div class="row mb-2">                            
+                            <div class="col-md-3">
+                                Position
+                            </div>
+                            <div class="col-md-4">
+                                <input class="form-control" type="text" name="emp_position" value="{{$emp_data->employee_position}}">
+                            </div>
                         </div>
-                        <div class="col-d-9">
-                            {{$emp_data->employee_job}}
+                        <div class="row mb-2">                            
+                            <div class="col-md-3">
+                                Sex
+                            </div>
+                            <div class="col-md-4">
+                                <input class="form-control" type="text" name="emp_sex" value="{{$emp_data->employee_sex}}">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row mb-2">                            
-                        <div class="col-md-3">
-                            Position
+                        <div class="row mb-2">                            
+                            <div class="col-md-3">
+                                Email
+                            </div>
+                            <div class="col-md-4">
+                                <input class="form-control" type="email" name="emp_email" value="{{$emp_data->employee_email}}">
+                            </div>
                         </div>
-                        <div class="col-d-9">
-                            {{$emp_data->employee_position}}
+                        <div class="row mb-2">                            
+                            <div class="col-md-3">
+                                Phone Number
+                            </div>
+                            <div class="col-md-4">
+                                <input class="form-control" type="text" name="emp_phone" value="{{$emp_data->employee_phone}}">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row mb-2">                            
-                        <div class="col-md-3">
-                            Sex
+                        <div class="row mb-2">                            
+                            <div class="col-md-3">
+                                Address
+                            </div>
+                            <div class="col-md-4">
+                                <input class="form-control" type="text" name="emp_address" value="{{$emp_data->employee_address}}">
+                            </div>
                         </div>
-                        <div class="col-d-9">
-                            {{$emp_data->employee_sex}}
+                        <div class="row mb-2">                            
+                            <div class="col-md-3">
+                                Employee Type
+                            </div>
+                            <div class="col-md-4">
+                                <input class="form-control" type="text" name="emp_type" value="{{$emp_data->employee_type}}">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row mb-2">                            
-                        <div class="col-md-3">
-                            Email
+                        <div class="row mb-2">                            
+                            <div class="col-md-3">
+                                Start Working at
+                            </div>
+                            <div class="col-md-4">
+                                <input class="form-control" type="date" name="emp_start_date" value="{{$emp_data->employee_date_start}}">
+                            </div>
                         </div>
-                        <div class="col-d-9">
-                            {{$emp_data->employee_email}}
-                        </div>
-                    </div>
-                    <div class="row mb-2">                            
-                        <div class="col-md-3">
-                            Phone Number
-                        </div>
-                        <div class="col-d-9">
-                            {{$emp_data->employee_phone}}
-                        </div>
-                    </div>
-                    <div class="row mb-2">                            
-                        <div class="col-md-3">
-                            Address
-                        </div>
-                        <div class="col-d-9">
-                            {{$emp_data->employee_address}}
-                        </div>
-                    </div>
-                    <div class="row mb-2">                            
-                        <div class="col-md-3">
-                            Employee Type
-                        </div>
-                        <div class="col-d-9">
-                            {{$emp_data->employee_type}}
-                        </div>
-                    </div>
-                    <div class="row mb-2">                            
-                        <div class="col-md-3">
-                            Start Working at
-                        </div>
-                        <div class="col-d-9">
-                            {{$emp_data->employee_date_start}}
-                        </div>
-                    </div>
-                    <div class="row mb-2">                            
-                        <div class="col-md-12">
-                        <a class="btn btn-dark btn-sm" href="{{'/employee'}}">List all</a>
-                        </div>
-                    </div>
+                        <div class="row mb-2">                            
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                            </div>
+                        </div>                    
+                    </form>
                 </div>
             </div>
         </main>

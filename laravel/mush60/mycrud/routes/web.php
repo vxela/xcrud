@@ -19,5 +19,6 @@ Route::get('/employee', 'employeeController@index');
 Route::get('/employee/list', 'employeeController@index');
 Route::get('/employee/show/{id}', 'employeeController@show');
 Route::get('/employee/edit/{id}', 'employeeController@edit');
+Route::post('/employee/update/{id}', 'employeeController@update');
 Route::get('/employee/delete/{id}', 'employeeController@delete');
 // Route::get('/employee/edit/{{id}}', 'employeeController@edit');

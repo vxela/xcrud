@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class employeeController extends Controller
 {
@@ -56,6 +57,23 @@ class employeeController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $emp_data = \App\Employee::find($id);
+
+        $emp_data->employee_name = $request->emp_name;
+        $emp_data->employee_job = $request->emp_job;
+        $emp_data->employee_position = $request->emp_position;
+        $emp_data->employee_sex = $request->emp_sex;
+        $emp_data->employee_email = $request->emp_email;
+        $emp_data->employee_phone = $request->emp_phone;
+        $emp_data->employee_address = $request->emp_address;
+        $emp_data->employee_type = $request->emp_type;
+        $emp_data->employee_date_start = $request->emp_start_date;
+        $emp_data->updated_at = Carbon::now()->format('Y-m-d H:i:s');
+
+        $emp_data->save();
+
+        return redirect()->back();
+            // dd($request->all());
     }
 
     public function delete()
