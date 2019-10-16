@@ -25,7 +25,25 @@ class employeeController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $emp_data = new \App\Employee;
+
+        $emp_data->employee_name = $request->emp_name;
+        $emp_data->employee_job = $request->emp_job;
+        $emp_data->employee_position = $request->emp_position;
+        $emp_data->employee_sex = $request->emp_sex;
+        $emp_data->employee_email = $request->emp_email;
+        $emp_data->employee_phone = $request->emp_phone;
+        $emp_data->employee_address = $request->emp_address;
+        $emp_data->employee_type = $request->emp_type;
+        $emp_data->employee_date_start = $request->emp_start_date;
+        $emp_data->created_at = Carbon::now()->format('Y-m-d H:i:s');
+        $emp_data->updated_at = Carbon::now()->format('Y-m-d H:i:s');
+
+        $emp_data->save();
+
+        return redirect('/employee')->with('status', 'Success add data');
+        
+
     }
 
     public function show($id)
@@ -72,7 +90,7 @@ class employeeController extends Controller
 
         $emp_data->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('status', 'Success edit data');
             // dd($request->all());
     }
 
@@ -93,7 +111,7 @@ class employeeController extends Controller
         $emp_data = \App\Employee::find($id);
         //
         $emp_data->forceDelete();
-        return redirect('/employee');
+        return redirect('/employee')->with('status', 'Success Delete data');
         
     }
 }

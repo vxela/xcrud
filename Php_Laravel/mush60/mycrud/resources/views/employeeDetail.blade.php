@@ -22,7 +22,17 @@
     <body>
         <main role="main" class="container">
             <div class="starter-template">
-                <div class="col-md-12">
+            <div class="row">
+                <div class="col-sm-12 mb-2">
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mb-2">
                     <div class="row mb-2">
                         <div class="col-md-12">
                             <h2>Employee Detail</h2>
@@ -102,10 +112,12 @@
                     </div>
                     <div class="row mb-2">                            
                         <div class="col-md-12">
-                        <a class="btn btn-dark btn-sm" href="{{'/employee'}}">List all</a>
+                            <a class="btn btn-dark btn-sm" href="{{'/employee'}}">List all</a>
+                            <a class="btn btn-primary btn-sm" href="/employee/edit/{{$emp_data->id}}">Edit</a>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </main>
         <script src="{{asset('dist/js/jquery-3.3.1.js')}}"></script>

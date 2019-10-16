@@ -11,12 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'employeeController@index');
 
 Route::get('/employee', 'employeeController@index');
 Route::get('/employee/list', 'employeeController@index');
+Route::get('/employee/create', 'employeeController@create');
+Route::post('/employee/store', 'employeeController@store');
 Route::get('/employee/show/{id}', 'employeeController@show');
 Route::get('/employee/edit/{id}', 'employeeController@edit');
 Route::post('/employee/update/{id}', 'employeeController@update');

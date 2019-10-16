@@ -23,6 +23,18 @@
         <main role="main" class="container">
             <div class="starter-template">
                 <div class="row">
+                    <div class="col-sm-12 mb-2">
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 mb-2">
+                        <a href="/employee/create" class="btn btn-primary"> Add New Data</a>
+                    </div>
                     <div class="col-md-12">
                         <table id="example" class="table table-striped table-bordered" style="width:100%">
                             <thead>

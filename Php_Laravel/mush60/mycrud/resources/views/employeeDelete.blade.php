@@ -28,7 +28,7 @@
                             Are want to <strong>delete</strong> this data?
                         </div>
                         <a class="btn btn-danger btn-sm" href="/employee/destroy/{{$id}}">Yes, Delete</a>
-                        <a class="btn btn-secondary btn-sm" href="/employee/delete/{{$id}}">No, Bring me Back</a>
+                        <a class="btn btn-secondary btn-sm" href="/">No, Bring me Back</a>
                     </div>
                 </div>
             </div>
