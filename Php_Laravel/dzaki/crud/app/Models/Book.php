@@ -21,6 +21,8 @@ class Book extends Model
 
     protected $fillable = ['*'];
 
+    protected $hidden = ['updated_at','deleted_at'];
+
     public $timestamps = true;
 
 }
