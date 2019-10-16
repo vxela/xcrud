@@ -1,0 +1,7 @@
+INSERT INTO `tbl_employee` (`id`, `emp_name`, `emp_job`, `emp_address`, `emp_contact`, `emp_email`) VALUES (NULL, 'John Doe', 'Programmer', 'St. Nowhere, Noplace', '0324234242', 'jode@mail.com');
+INSERT INTO `tbl_employee` (`id`, `emp_name`, `emp_job`, `emp_address`, `emp_contact`, `emp_email`) VALUES (NULL, 'Harmione Piere', 'Analyst', 'St. Riverdale, Noplace', '08324234235', 'hapi@mail.com');
+INSERT INTO `tbl_employee` (`id`, `emp_name`, `emp_job`, `emp_address`, `emp_contact`, `emp_email`) VALUES (NULL, 'Jene Doe', 'Designer', 'St. Nowhere 1, Noplace', '0324234242', 'jene@mail.com');
+INSERT INTO `tbl_employee` (`id`, `emp_name`, `emp_job`, `emp_address`, `emp_contact`, `emp_email`) VALUES (NULL, 'Alex Miler', 'Architect', 'St. Nohome, Noplace', '03354534535', 'amil@mail.com');
+INSERT INTO `tbl_employee` (`id`, `emp_name`, `emp_job`, `emp_address`, `emp_contact`, `emp_email`) VALUES (NULL, 'Fred Kyle', 'Marketing', 'St. Anywhere, Noplace', '03234235235', 'freky@mail.com');
+INSERT INTO `tbl_employee` (`id`, `emp_name`, `emp_job`, `emp_address`, `emp_contact`, `emp_email`) VALUES (NULL, 'Veronica Lodge', 'Artist', 'St. Anyplace, Noplace', '2423424234', 'vlod@mail.com');
+INSERT INTO `tbl_employee` (`id`, `emp_name`, `emp_job`, `emp_address`, `emp_contact`, `emp_email`) VALUES (NULL, 'Tony Cooper', 'Doctor', 'St. Allblue, Noplace', '0823423422', 'tcoop@mail.com');
