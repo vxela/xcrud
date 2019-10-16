@@ -76,10 +76,10 @@ class employeeController extends Controller
             // dd($request->all());
     }
 
-    public function delete()
+    public function delete($id)
     {
-        //
-        return view('employeeDelete');
+        
+        return view('employeeDelete', ['id' => $id]);
     }    
 
     /**
@@ -90,6 +90,10 @@ class employeeController extends Controller
      */
     public function destroy($id)
     {
+        $emp_data = \App\Employee::find($id);
         //
+        $emp_data->forceDelete();
+        return redirect('/employee');
+        
     }
 }
