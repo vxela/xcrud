@@ -1,0 +1,31 @@
+extends layout
+
+block content
+    h1 #{title}
+
+    form(method="POST" action='')
+        div.form-group
+            label(for='book') Book:
+            select#book.form-control(type='select', placeholder='Select book', name='Book', value=(undefined===bookinstance?'':bookinstance.book))
+            for book in book_list
+                if bookinstance
+                    option(value=book._id)
+        div.form-group
+            label(for='imprint') Imprint:
+            input#imprint.form-control(type='text', placeholder='Enter imprints', name='imprint' value=(undefined===bookinstance?'':bookinstance.imprint))
+            label(for='due_date') Due Date:
+            input#due_date.form-control(type='date', placeholder='Enter due date', name='due date' value=(undefined===bookinstance?'':bookinstance.due_date))
+        div.form-group
+            label(for='status') Status:
+            select#status.form-control(type='select', placeholder='Select status', name='status', required='true')
+            option(value="Available") Available
+            option(value="Maintenance") Maintenance
+            option(value="Loaned") Loaned
+            option(value="Reserved") Reserved
+
+        button.btn.btn-primary(type="submit") Submit
+
+    if errors
+        ul
+            for error in errors
+                li!=error.msg
