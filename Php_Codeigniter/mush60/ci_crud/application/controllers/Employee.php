@@ -23,6 +23,15 @@ class Employee extends CI_Controller {
         $this->load->view('employee/show_emp', $data);
     }
 
+    public function edit($id) {
+
+        $this->load->model('M_employee');
+        $data['emp_data'] = $this->M_employee->getById($id);
+
+        $this->load->view('employee/edit_emp', $data);
+
+    }
+
 }
 
 /* End of file Employee.php */
