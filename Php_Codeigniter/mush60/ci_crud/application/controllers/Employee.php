@@ -58,6 +58,26 @@ class Employee extends CI_Controller {
 
     }
 
+    public function update($id) {
+
+        $data = array(
+            'emp_name' => $this->input->post('emp_name'),
+            'emp_job' => $this->input->post('emp_job'),
+            'emp_address' => $this->input->post('emp_address'),
+            'emp_contact' => $this->input->post('emp_contact'),
+            'emp_email' => $this->input->post('emp_email')            
+        );
+
+        $this->load->model('M_employee');
+
+        $this->M_employee->update($data, $id);
+
+        $this->session->set_flashdata('status', 'Update data success');
+        
+        redirect(base_url().employee);
+
+    }
+
 }
 
 /* End of file Employee.php */
