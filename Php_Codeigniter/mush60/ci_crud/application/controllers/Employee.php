@@ -23,6 +23,32 @@ class Employee extends CI_Controller {
         $this->load->view('employee/show_emp', $data);
     }
 
+    public function create() {
+
+        $this->load->view('employee/create_emp');
+        
+    }
+
+    public function store() {
+
+        $data = array(
+            'emp_name' => $this->input->post('emp_name'),
+            'emp_job' => $this->input->post('emp_job'),
+            'emp_address' => $this->input->post('emp_address'),
+            'emp_contact' => $this->input->post('emp_contact'),
+            'emp_email' => $this->input->post('emp_email')
+        );
+
+        $this->load->model('M_employee');
+
+        $this->M_employee->addData($data);
+
+        $this->session->set_flashdata('status', 'Inser data success');
+        
+        redirect(base_url().employee);
+
+    }
+
     public function edit($id) {
 
         $this->load->model('M_employee');

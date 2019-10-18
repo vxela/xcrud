@@ -14,11 +14,16 @@ class M_employee extends CI_Model {
 
     public function getById($id){
 
-        // $this->db->get($this->table);
-        // return $this->db->where('id', $id)
         return $this->db->get_where($this->table, array('id' => $id))->row();
 
     }
+
+    public function addData($data) {
+
+        $this->db->insert($this->table, $data);
+
+        return "success";
+    }    
 
 }
 
