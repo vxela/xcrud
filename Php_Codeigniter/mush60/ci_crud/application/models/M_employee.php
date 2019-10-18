@@ -25,6 +25,22 @@ class M_employee extends CI_Model {
         return "success";
     }    
 
+    public function update($data, $id) {
+
+        $this->db->where('id', $id);
+        $this->db->update($this->table, $data);
+
+        return "success";
+    }
+    
+    public function destroy($id) {
+
+        $this->db->where('id', $id);
+        $this->db->delete($this->table);
+        
+        return "success";
+    }
+    
 }
 
 /* End of file M_employee.php */

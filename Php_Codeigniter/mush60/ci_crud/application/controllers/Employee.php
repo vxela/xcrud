@@ -78,6 +78,25 @@ class Employee extends CI_Controller {
 
     }
 
+    public function delete($id) {
+
+        $this->load->model('M_employee');
+        $data['emp_data'] = $this->M_employee->getById($id);
+
+        $this->load->view('employee/delete_emp', $data);
+
+    }
+
+    public function destroy($id) {
+
+        $this->load->model('M_employee');
+        $this->M_employee->destroy($id);
+
+        $this->session->set_flashdata('status', 'Delete data success');
+        redirect(base_url().employee);
+
+    }
+
 }
 
 /* End of file Employee.php */

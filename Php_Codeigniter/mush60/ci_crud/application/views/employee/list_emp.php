@@ -25,7 +25,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12 mb-2">
-                    <a href="/employee/create" class="btn btn-primary"> Add New Data</a>
+                    <a href="<?= base_url()?>employee/create" class="btn btn-primary"> Add New Data</a>
                 </div>
                 <div class="col-md-12">
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
