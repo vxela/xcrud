@@ -1,0 +1,126 @@
+<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <span *ngIf="projectData != null">
+    <h1>
+      {{ projectData.projectName }}
+      <span ngbDropdown class="d-inline-block">
+        <button
+          class="btn btn-outline-primary"
+          id="projectDropdown"
+          ngbDropdownToggle
+        >
+          <i class="fas fa-cog"></i>
+        </button>
+        <div ngbDropdownMenu aria-labelledby="projectDropdown">
+          <button class="dropdown-item" (click)="toggleUpdate()">
+            <i class="fas fa-edit"></i> Update Project
+          </button>
+          <button class="dropdown-item" (click)="deleteProject()">
+            <i class="far fa-trash-alt"></i> Delete Project
+          </button>
+        </div>
+      </span>
+    </h1>
+    <p class="desc lead">Description: {{ projectData.projectDesc }}</p>
+  </span>
+  <div *ngIf="updateOpen">
+    <form ngNativeValidate *ngIf="projectData != null">
+      <div
+        class="card text-center mx-auto"
+        style="width: 18rem; margin-bottom: 2rem"
+      >
+        <div class="card-body">
+          <p class="card-title">
+            <input
+              style="padding: .375rem .75rem; border: 1px solid rgba(0,0,0,.125); border-radius: .25rem;"
+              type="text"
+              id="project-name"
+              placeholder="{{projectData.projectName}}"
+              [(ngModel)]="updateData.projectTitle"
+              name="projectName"
+              required
+            />
+          </p>
+          <p class="card-text">
+            <textarea
+              style="border: 1px solid rgba(0,0,0,.125); border-radius: .25rem;"
+              name="projectDesc"
+              id="project-description"
+              cols="25"
+              rows="5"
+              placeholder="{{projectData.projectDesc}}"
+              [(ngModel)]="updateData.projectDesc"
+              required
+            ></textarea>
+          </p>
+          <button
+            class="btn btn-primary mb-2 mr-2 ml-2"
+            type="submit"
+            (click)="updateProject()"
+          >
+            Update Project
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="container mx-auto">
+    <div *ngIf="!cardData || cardData.length === 0">
+      <h4 style="padding: 2rem">Add a task!</h4>
+    </div>
+    <div *ngFor="let t of cardData">
+      <div class="card mx-auto card-style">
+        <div class="card-body text-left" style="padding: 10px">
+          {{ t.task }}
+          <hr />
+          <div class="align-self-center" *ngIf="t.status === false">
+            <span class="d-flex justify-content-start">
+              Status: In progress
+            </span>
+            <span class="d-flex justify-content-between card-icons">
+              <button class="btn btn-success icon" (click)="setComplete(t._id)">
+                <i class="far fa-check-square"></i> Complete
+              </button>
+              <button
+                class="btn btn-danger icon"
+                (click)="deleteCard(t._id, t.task)"
+              >
+                <i class="far fa-trash-alt"></i> Delete
+              </button>
+            </span>
+          </div>
+          <div class="align-self-center" *ngIf="t.status === true">
+            <span class="d-flex justify-content-start">
+              Status: Completed
+            </span>
+            <span class="d-flex justify-content-end card-icons">
+              <button
+                class="btn btn-danger icon"
+                (click)="deleteCard(t._id, t.task)"
+              >
+                <i class="far fa-trash-alt"></i> Delete
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Form to add a new task -->
+    <form ngNativeValidate class="task-form">
+      <input
+        type="text"
+        id="project-name"
+        placeholder=" Task Details"
+        [(ngModel)]="cardDetails.task"
+        name="projectName"
+        required
+      />
+      <button
+        class="btn btn-primary mb-2 mr-2 ml-2"
+        type="submit"
+        (click)="createCard()"
+      >
+        Add Task
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-8 text-monospace">Profile</h1>
+</div>
+
+<div class="container">
+  <div class="mb-3 text-center">
+    <div class="text-center" *ngIf="user != null">
+      <div class="text-center login-box" *ngIf="user.accountLevel === false">
+        <h4>Update account details</h4>
+        <form class="form-signin">
+          <label for="inputUsername" class="sr-only">Username</label>
+          <input
+            type="text"
+            id="inputUsername"
+            class="form-control"
+            placeholder="{{ user.username }}"
+            required
+            autofocus
+            [(ngModel)] = "updateUserData.username"
+            name = "username"
+          />
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input
+            type="password"
+            id="inputPassword"
+            class="form-control"
+            placeholder="Password"
+            required
+            style="margin: 10px 0px"
+            [(ngModel)]="updateUserData.password"
+            name="password"
+          />
+
+          <button class="btn btn-primary" (click)="updateUser()">Update</button>
+        </form>
+      </div>
+
+      <p>User ID: {{ user._id }}</p>
+
+      <p>
+        Membership Level: <span *ngIf="user.accountLevel === false">Free</span>
+        <span *ngIf="user.accountLevel === true">Admin</span>
+      </p>
+
+      <p>Date created: {{ user.createdAt }}</p>
+
+      <div *ngIf="user.accountLevel === false">
+        <button class="btn btn-danger" type="button" (click)="deleteUser()">
+          Delete Account
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

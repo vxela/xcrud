@@ -1,0 +1,40 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "dev-admin": "set NODE_ENV=development&&nodemon admin-server",
+    "dev-card":"set NODE_ENV=development&&nodemon card-server",
+    "dev-project":"set NODE_ENV=development&&nodemon project-server",
+    "dev-user":"set NODE_ENV=development&&nodemon user-server",
+
+    "prod":"set NODE_ENV=production&&nodemon admin-server",
+    "prod2":"set NODE_ENV=production&&nodemon card-server",
+    "prod3":"set NODE_ENV=production&&nodemon project-server",
+    "prod4":"set NODE_ENV=production&&nodemon user-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.4",
+    "express-jwt": "^5.3.1",
+    "helmet": "^3.15.0",
+    "jsonwebtoken": "^8.4.0",
+    "lodash": "^4.17.11",
+    "moment": "^2.23.0",
+    "mongoose": "^5.3.13",
+    "mongoose-unique-validator": "^2.0.2",
+    "nodemon": "^1.18.7",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "tunnel-ssh": "^4.1.4"
+  }
+}

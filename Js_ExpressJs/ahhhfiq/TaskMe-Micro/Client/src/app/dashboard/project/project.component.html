@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="text-center">
+        <h3 class="heading">Create project</h3>
+        <div class="mb-3">
+          <div>
+            <form ngNativeValidate>
+              <div
+                class="card text-center mx-auto"
+                style="width: 18rem; margin-bottom: 2rem"
+              >
+                <div class="card-body">
+                  <p class="card-title">
+                    <input
+                      style="padding: .375rem .75rem; border: 1px solid rgba(0,0,0,.125); border-radius: .25rem;"
+                      type="text"
+                      id="project-name"
+                      placeholder="Project Name"
+                      [(ngModel)]="projectData.projectName"
+                      name="projectName"
+                      required
+                    />
+                  </p>
+                  <p class="card-text">
+                    <textarea
+                      style="border: 1px solid rgba(0,0,0,.125); border-radius: .25rem;"
+                      name="projectDesc"
+                      id="project-description"
+                      cols="25"
+                      rows="5"
+                      placeholder="Project Description"
+                      [(ngModel)]="projectData.projectDesc"
+                      required
+                    ></textarea>
+                  </p>
+                  <button
+                    class="btn btn-primary mb-2 mr-2 ml-2"
+                    type="submit"
+                    (click)="createProject()"
+                  >
+                    Add Project
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="justify-content-center">
+        <h3 class="text-center heading">Projects</h3>
+        <div class="mx-auto" *ngIf="!projects || projects.length === 0">
+          <div class="text-center">
+            No projects found
+            <hr />
+            Add one now!
+          </div>
+        </div>
+        <div class="mx-auto" *ngIf="projects != null">
+          <div class="mb-4">
+            <div
+              class="card text-center mx-auto mb-4"
+              *ngFor="let p of projects"
+            >
+              <div class="card-header">{{ p.projectName }}</div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  Description: {{ p.projectDesc }}
+                  <span style="display: block">
+                    <a routerLink="/dashboard/board/{{ p._id }}"
+                      >View Project</a
+                    >
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="text-center">
+        <h3 class="heading">Teams</h3>
+        <p class="lead">Not available at the moment</p>
+      </div>
+    </div>
+  </div>
+</div>

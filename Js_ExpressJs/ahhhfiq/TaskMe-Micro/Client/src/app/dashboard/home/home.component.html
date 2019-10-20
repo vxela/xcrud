@@ -1,0 +1,11 @@
+<div *ngIf="user != null">
+  <div *ngIf="user.accountLevel === false">
+    <app-project></app-project>
+  </div>
+</div>
+
+<div *ngIf="user != null">
+  <div *ngIf="user.accountLevel === true">
+    <app-admin></app-admin>
+  </div>
+</div>

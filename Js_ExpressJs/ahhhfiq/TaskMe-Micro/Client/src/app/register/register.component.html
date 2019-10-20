@@ -1,0 +1,53 @@
+<div class="my-container">
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+                <div class="text-center login-box">
+                    <form class="form-signin">
+                        <h1>TaskMe</h1>
+                        <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
+                        <label for="inputUsername" class="sr-only"
+                            >Username</label
+                        >
+                        <input
+                            type="text"
+                            id="inputUsername"
+                            class="form-control"
+                            placeholder="Username"
+                            required
+                            autofocus
+                            [(ngModel)]="registerUserData.username"
+                            name="username"
+                        />
+                        <label for="inputPassword" class="sr-only"
+                            >Password</label
+                        >
+                        <input
+                            type="password"
+                            id="inputPassword"
+                            class="form-control"
+                            placeholder="Password"
+                            required
+                            [(ngModel)]="registerUserData.password"
+                            name="password"
+                        />
+                        <button
+                            class="btn btn-lg btn-primary btn-block"
+                            type="submit"
+                            (click)="register()"
+                        >
+                            Register
+                        </button>
+                        <p class="register-link">
+                            Already a member?
+                            <a routerLink="/"> Login here.</a>
+                        </p>
+                        <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+                    </form>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-sm navbar-dark">
+    <a id="title" class="navbar-brand" routerLink="home"><h1>TaskMe</h1></a>
+
+    <button
+        class="navbar-toggler"
+        type="button"
+        (click)="toggleNavbar()"> <!--The click event for responsive navbar-->
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div
+        class="collapse navbar-collapse straighten"
+        [ngClass]="{ show: navbarOpen }">
+        <ul class="navbar-nav ml-auto line">
+            <li class="nav-item">
+                <a class="nav-link nav-button" routerLink="home" style="text-align: center;"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-button" routerLink="user" style="text-align: center;"><i class="fas fa-user"></i> User</a>
+            </li>
+            <button class="btn btn-success btn-logout" (click)="logoutUser()"><i class="fas fa-sign-out-alt"></i>Logout</button>
+        </ul>
+    </div>
+</nav>
+
+

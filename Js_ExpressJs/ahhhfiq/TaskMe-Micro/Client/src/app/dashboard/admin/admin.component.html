@@ -1,0 +1,217 @@
+<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-8 text-monospace">Admin</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h4 class="text-center my-4">Statistics</h4>
+
+      <div
+        class="d-flex justify-content-center card-style"
+        *ngIf="projectCount == null && userCount == null && cardCount == null"
+      >
+        <div class="card text-center" style="width: 18rem">
+          <div
+            class="card-body"
+            style="font-size: 1.05em"
+            style="font-size: 1.05em"
+          >
+            <i style="font-size: 1.5em" class="fas fa-chart-pie"></i> No stats
+            available!
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="d-flex justify-content-center card-style"
+        *ngIf="projectCount != null"
+      >
+        <div class="card text-center" style="width: 18rem">
+          <div class="card-body" style="font-size: 1.05em" (click)="getList(1)">
+            <i style="font-size: 1.5em" class="far fa-sticky-note"></i> Amount
+            of projects: {{ projectCount.count }}
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="d-flex justify-content-center card-style"
+        *ngIf="userCount != null"
+      >
+        <div class="card text-center" style="width: 18rem">
+          <div class="card-body" style="font-size: 1.05em" (click)="getList(2)">
+            <i style="font-size: 1.5em" class="fas fa-users"></i> Amount of
+            users: {{ userCount.count }}
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="d-flex justify-content-center card-style"
+        *ngIf="cardCount != null"
+      >
+        <div class="card text-center" style="width: 18rem">
+          <div class="card-body" style="font-size: 1.05em" (click)="getList(3)">
+            <i style="font-size: 1.5em" class="fas fa-tasks"></i> Task created:
+            {{ cardCount.count }}
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="d-flex justify-content-center card-style"
+        *ngIf="adminCount != null"
+      >
+        <div class="card text-center" style="width: 18rem">
+          <div class="card-body" style="font-size: 1.05em" (click)="getList(4)">
+            <i style="font-size: 1.5em" class="fas fa-user-shield"></i> Amount
+            of admins: {{ adminCount.count }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="d-flex justify-content-center">
+        <h4 class="my-4">Statistics List</h4>
+      </div>
+
+      <div class="d-flex justify-content-center card-style">
+        <div class="card text-center" style="width: 18rem">
+          <div *ngIf="listData == null">
+            <div class="card-body">Nothing to display</div>
+          </div>
+          <div *ngIf="listData === 1">
+            <ul *ngFor="let p of projectDetails" class="list-group list-group-flush">
+              <li class="list-group-item">{{ p.projectName }}</li>
+            </ul>
+          </div>
+          <div *ngIf="listData === 2">
+            <ul *ngFor="let u of user" class="list-group list-group-flush">
+              <li class="list-group-item">{{ u.username }}</li>
+
+            </ul>
+          </div>
+          <div *ngIf="listData === 3">
+            <ul *ngFor="let t of taskDetails" class="list-group list-group-flush">
+              <li class="list-group-item">{{ t.task }}</li>
+            </ul>
+          </div>
+          <div *ngIf="listData === 4">
+            <ul
+              *ngFor="let a of adminDetails"
+              class="list-group list-group-flush"
+            >
+              <li class="list-group-item">{{ a.username }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="d-flex justify-content-center">
+        <h4 class="my-4">Admin Panel</h4>
+      </div>
+      <div class="d-flex justify-content-center card-style">
+        <div class="card">
+          <div
+            class="card-title text-center"
+            style="margin-bottom: 0; margin-top: 0.75rem"
+          >
+            Create Admin
+          </div>
+          <div class="card-body" style="width: 18rem;">
+            <form ngNativeValidate class="user-form">
+              <input
+                type="text"
+                id="username"
+                placeholder="Username"
+                [(ngModel)]="userDetails"
+                name="username"
+                required
+                class="form-control"
+              />
+              <hr />
+              <div class="d-flex justify-content-end">
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                  (click)="createAdmin()"
+                >
+                  Make Admin
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center card-style">
+        <div class="card">
+          <div
+            class="card-title text-center"
+            style="margin-bottom: 0; margin-top: 0.75rem"
+          >
+            Remove Admin
+          </div>
+          <div class="card-body" style="width: 18rem;">
+            <form ngNativeValidate class="user-form">
+              <input
+                type="text"
+                id="username"
+                placeholder="Username"
+                [(ngModel)]="adminUser"
+                name="username"
+                required
+                class="form-control"
+              />
+              <hr />
+              <div class="d-flex justify-content-end">
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                  (click)="removeAdmin()"
+                >
+                  Remove Admin
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center card-style">
+        <div class="card">
+          <div
+            class="card-title text-center"
+            style="margin-bottom: 0; margin-top: 0.75rem"
+          >
+            Delete User
+          </div>
+          <div class="card-body" style="width: 18rem;">
+            <form ngNativeValidate class="user-form">
+              <input
+                type="text"
+                id="username"
+                placeholder="Username"
+                [(ngModel)]="deleteUserDetails"
+                name="username"
+                required
+                class="form-control"
+              />
+              <hr />
+              <div class="d-flex justify-content-end">
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                  (click)="deleteUser()"
+                >
+                  Delete User
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

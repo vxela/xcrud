@@ -1,0 +1,20 @@
+.task-form input {
+  /* margin: 2rem; */
+  padding: 0.375rem 0.15rem;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+.desc {
+  font-size: 1em;
+}
+.icon {
+  padding: 1px 6px;
+  margin: 0 5px;
+}
+.card-style {
+  width: 18rem;
+  margin-bottom: 2rem;
+}
+.card-icons {
+  margin-top: 1rem
+}

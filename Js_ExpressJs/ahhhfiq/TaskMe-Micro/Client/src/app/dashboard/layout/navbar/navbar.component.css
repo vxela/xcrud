@@ -1,0 +1,25 @@
+nav {
+    background-color: #3DA736;
+    padding: 0;
+    margin: 0;
+}
+nav button{
+    margin-right: 15px;
+}
+nav ul{
+    padding-right: 15px;
+}
+.nav-link a:hover{
+    color: white;
+}
+.fas .fa-bars {
+    color:white;
+}
+#title {
+    color: white;
+    padding-left: 20px;
+    text-decoration: none;
+}
+.btn-logout {
+  color: rgba(255,255,255,.5);
+}
