@@ -1,4 +1,4 @@
-# xcrud
+# Create a xcrud
 xcrud is a repository for store your crud application in any feramework for learning purposes
 
 <hr>
